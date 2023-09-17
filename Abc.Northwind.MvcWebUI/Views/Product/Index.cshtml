@@ -1,0 +1,35 @@
+﻿@model ProductListViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table class="table table-responsive table-dark ">
+        <tr>
+            <td>Product Name</td>
+            <td>Unit Price</td>
+            <td>Units In Stock</td>
+        </tr>
+        @foreach (var x in Model.Products)
+        {
+            <tr>
+                <td>@x.ProductName</td>
+                <td>@x.UnitPrice</td>
+                <td>@x.UnitsInStock</td>
+                <td><a class="btn btn-xs btn-success" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@x.ProductId">Sepete Ekle</a></td>
+            </tr>
+        }
+    </table>
+    <product-list-pager page-count="@Model.PageCount"
+                        current-category="@Model.CurrentCategory"
+                        current-page="@Model.CurrentPage"
+                        page-size="@Model.PageSize"></product-list-pager>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mvc.Northwind.DataAccess\Mvc.Northwind.DataAccess.csproj" />
+    <ProjectReference Include="..\Mvc.Northwind.Entities\Mvc.Northwind.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,37 @@
+﻿@model Abc.Northwind.MvcWebUI.Models.ProductListViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Product List</h1>
+<!DOCTYPE html>
+
+<a class="btn btn-xs btn-outline-success" asp-controller="Admin" asp-action="Add">Ürün Ekle</a>
+<div>
+    <table class="table table-responsive table-dark ">
+        <tr>
+            <td>Product Name</td>
+            <td>Unit Price</td>
+            <td>Units In Stock</td>
+            <td></td>
+            <td></td>
+        </tr>
+        @foreach (var x in Model.Products)
+        {
+            <tr>
+                <td>@x.ProductName</td>
+                <td>@x.UnitPrice</td>
+                <td>@x.UnitsInStock</td>
+                <td><a class="btn btn-xs btn-info" asp-controller="Admin" asp-action="Update" asp-route-productId="@x.ProductId">Güncelle</a></td>
+                <td><a class="btn btn-xs btn-danger" asp-controller="Admin" asp-action="Delete" asp-route-productId="@x.ProductId">Sil</a></td>
+            </tr>
+        }
+    </table>
+    <product-list-pager page-count="@Model.PageCount"
+                        current-category="@Model.CurrentCategory"
+                        current-page="@Model.CurrentPage"
+                        page-size="@Model.PageSize"></product-list-pager>
+
+
+</div>
